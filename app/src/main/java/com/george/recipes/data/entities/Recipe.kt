@@ -1,10 +1,12 @@
 package com.george.recipes.data.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class Recipe(
-    val id: Long,
+    @PrimaryKey
+    val id: Long? = null,
     val title: String,
     val author: String,
     val rating: Int
