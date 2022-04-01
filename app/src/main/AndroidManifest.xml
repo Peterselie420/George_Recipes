@@ -3,6 +3,7 @@
     package="com.george.recipes">
 
     <application
+        android:name=".GeorgeRecipesApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeorgeRecipes">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
