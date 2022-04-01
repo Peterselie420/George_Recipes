@@ -83,3 +83,5 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+# Gradle should take care of .idea, no need to include in vcs
+/.idea/
