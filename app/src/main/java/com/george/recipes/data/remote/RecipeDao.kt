@@ -11,11 +11,11 @@ interface RecipeDao {
     fun getRecipes(): Flow<List<Recipe>>
 
     @Query("SELECT * FROM recipe WHERE id = :id")
-    suspend fun getNoteById(id: Long): Recipe?
+    suspend fun getRecipeById(id: Long): Recipe?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNote(recipe: Recipe)
+    suspend fun insertRecipe(recipe: Recipe)
 
     @Delete
-    suspend fun deleteNote(recipe: Recipe)
+    suspend fun deleteRecipe(recipe: Recipe)
 }
