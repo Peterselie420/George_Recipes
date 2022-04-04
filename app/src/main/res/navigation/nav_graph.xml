@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/nav_recipes"
-        android:name="com.george.recipes.ui.fragments.RecipeFragment"
+        android:name="com.george.recipes.ui.fragments.RecipeListFragment"
         tools:layout="@layout/fragment_recipe"/>
 
     <fragment
