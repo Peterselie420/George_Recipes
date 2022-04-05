@@ -16,9 +16,6 @@ class RecipeListViewModel @Inject constructor(db: RecipeDatabase): ViewModel() {
 
     private val dao = db.recipeDao
 
-    private val _recipes = MutableLiveData<List<Recipe>>()
-    val recipes: LiveData<List<Recipe>> = _recipes
-
     init {
         viewModelScope.launch {
             // Testing code to make sure database contains some recipes, delete in final implementation
@@ -30,7 +27,8 @@ class RecipeListViewModel @Inject constructor(db: RecipeDatabase): ViewModel() {
                     Recipe(author = "Peter", title = "Recipe $i", rating = 5))
                 dao.insertRecipes(recipeList)
             }
-            _recipes.value = dao.getRecipes()
         }
     }
+
+    suspend fun getRecipes() = dao.getRecipes()
 }

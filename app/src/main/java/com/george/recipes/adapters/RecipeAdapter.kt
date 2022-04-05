@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.george.recipes.data.entities.Recipe
 import com.george.recipes.databinding.ListItemRecipeBinding
 
-class RecipeAdapter: ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
+class RecipeAdapter(private val onItemClick: (Recipe) -> Unit):
+    ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         return RecipeViewHolder(
@@ -16,7 +17,11 @@ class RecipeAdapter: ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(RecipeD
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ),
+            onItemClick = { position ->
+                val recipe = getItem(position)
+                if (recipe != null) onItemClick(recipe)
+            }
         )
     }
 
@@ -24,12 +29,22 @@ class RecipeAdapter: ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(RecipeD
         holder.bind(getItem(position))
     }
 
-    class RecipeViewHolder(private val binding: ListItemRecipeBinding) :
+    class RecipeViewHolder(
+        private val binding: ListItemRecipeBinding,
+        private val onItemClick: (Int) -> Unit
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recipe: Recipe) {
-            binding.recipe = recipe
-            binding.executePendingBindings()
+            val position = adapterPosition
+            binding.apply {
+                // Doing this here is cancer but works for now
+                root.setOnClickListener {
+                    if (position != RecyclerView.NO_POSITION) onItemClick(position)
+                }
+                this.recipe = recipe
+                executePendingBindings()
+            }
         }
     }
 }
