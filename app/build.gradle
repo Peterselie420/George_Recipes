@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdk 31
@@ -48,8 +49,8 @@ dependencies {
     kapt "androidx.room:room-compiler:2.4.2"
 
     //Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'

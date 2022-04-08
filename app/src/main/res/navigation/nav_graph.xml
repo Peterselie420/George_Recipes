@@ -7,11 +7,28 @@
     <fragment
         android:id="@+id/nav_recipes"
         android:name="com.george.recipes.ui.fragments.RecipeListFragment"
-        tools:layout="@layout/fragment_recipe_list"/>
+        android:label="RecipeList"
+        tools:layout="@layout/fragment_recipe_list">
+        <action
+            android:id="@+id/action_nav_recipes_to_nav_details"
+            app:destination="@id/nav_details"
+            app:popUpTo="@id/nav_recipes" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_timeline"
         android:name="com.george.recipes.ui.fragments.TimelineFragment"
+        android:label="Timeline"
         tools:layout="@layout/fragment_timeline"/>
 
+    <fragment
+        android:id="@+id/nav_details"
+        android:name="com.george.recipes.ui.fragments.RecipeDetailsFragment"
+        android:label="RecipeDetails"
+        tools:layout="@layout/fragment_recipe_details">
+        <argument
+            android:name="recipeId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
 </navigation>
