@@ -1,9 +1,7 @@
 package com.george.recipes.ui.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -12,9 +10,7 @@ import com.george.recipes.R
 import com.george.recipes.adapters.RecipeAdapter
 import com.george.recipes.databinding.FragmentRecipeListBinding
 import com.george.recipes.ui.viewmodels.RecipeListViewModel
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class RecipeListFragment: Fragment(R.layout.fragment_recipe_list) {

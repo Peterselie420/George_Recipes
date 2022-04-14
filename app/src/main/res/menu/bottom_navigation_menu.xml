@@ -9,8 +9,8 @@
         android:icon="@drawable/ic_home"
         android:title="Home" />
     <item
-        android:id="@+id/nav_something"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Something" />
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_search"
+        android:title="Search" />
 
 </menu>

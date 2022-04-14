@@ -22,6 +22,12 @@
         tools:layout="@layout/fragment_timeline"/>
 
     <fragment
+        android:id="@+id/nav_search"
+        android:name="com.george.recipes.ui.fragments.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search"/>
+
+    <fragment
         android:id="@+id/nav_details"
         android:name="com.george.recipes.ui.fragments.RecipeDetailsFragment"
         android:label="RecipeDetails"
